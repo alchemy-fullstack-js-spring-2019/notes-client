@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function NoteForm({ onSubmit, onChange, title, body, submitText }) {
-  console.log(submitText);
   return (
     <form onSubmit={onSubmit}>
       <input name="title" value={title} onChange={onChange} />
