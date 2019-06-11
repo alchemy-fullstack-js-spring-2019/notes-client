@@ -1,9 +1,9 @@
 import { WebAuth } from 'auth0-js';
 
 const auth0 = new WebAuth({
-  domain: 'alchemycodelab.auth0.com',
-  clientID: 'H1jU2YihCGJRskIQvqYSXJaxbxem8Ycu',
-  redirectUri: 'http://localhost:7890/callback',
+  domain: process.env.AUTH0_DOMAIN,
+  clientID: process.env.AUTH0_CLIENT_ID,
+  redirectUri: process.env.AUTH0_CALLBACK,
   responseType: 'token id_token',
   scope: 'openid profile'
 });
