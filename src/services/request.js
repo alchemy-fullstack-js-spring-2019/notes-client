@@ -1,8 +1,14 @@
+import store from '../store';
+import { getToken } from '../selectors/sessionSelectors';
+
 const request = (path, method, body) => {
   // eslint-disable-next-line no-undef
   return fetch(`${process.env.API_URL}${path}`, {
     method,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken(store.getState())}`
+    },
     body: body ? JSON.stringify(body) : null
   })
     .then(res => ([res.ok, res.json()]))
