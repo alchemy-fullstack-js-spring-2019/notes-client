@@ -1,9 +1,9 @@
-const request = (path, method, body = {}) => {
+const request = (path, method, body) => {
   // eslint-disable-next-line no-undef
   return fetch(`${process.env.API_URL}${path}`, {
     method,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+    body: body ? JSON.stringify(body) : null
   })
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
