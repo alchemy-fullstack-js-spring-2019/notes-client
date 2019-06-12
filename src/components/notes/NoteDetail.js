@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NoteForm from './NoteForm';
+import EditNote from '../../container/notes/EditNote';
 
 function NoteDetail({ note, owned }) {
   const {
@@ -9,7 +9,7 @@ function NoteDetail({ note, owned }) {
     author
   } = note;
 
-  const displayComp = owned ?
+  const displayComp = !owned ?
     (
       <>
         <h2>{title}</h2>
@@ -18,7 +18,7 @@ function NoteDetail({ note, owned }) {
       </>
     ) :
     (
-      <NoteForm title={title} body={body} />
+      <EditNote />
     );
 
   return displayComp;
