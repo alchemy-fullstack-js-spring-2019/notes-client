@@ -7,6 +7,7 @@ import {
 import Home from './Home';
 import Callback from '../container/auth/Callback';
 import { withSession } from '../container/auth/withSession';
+import NoteById from '../container/notes/NoteById';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={withSession(Home)} />
         <Route path="/callback" component={Callback} />
+        <Route path="/:id" component={withSession(NoteById)} />
       </Switch>
     </Router>
   );

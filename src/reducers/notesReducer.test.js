@@ -1,5 +1,7 @@
 import reducer from './notesReducer';
-import { newNote, NEW_NOTE_PENDING, NEW_NOTE, FETCH_NOTES_PENDING, FETCH_NOTES } from '../actions/notesActions';
+
+jest.mock('../services/auth.js');
+jest.mock('../services/notesApi.js');
 
 describe('notes reducer', () => {
   it('handles the NEW_NOTE_PENDING action', () => {
@@ -8,7 +10,7 @@ describe('notes reducer', () => {
       list: []
     };
     const newState = reducer(initialState, {
-      type: NEW_NOTE_PENDING
+      type: 'NEW_NOTE_PENDING'
     });
 
     expect(newState).toEqual({
@@ -23,7 +25,7 @@ describe('notes reducer', () => {
       list: []
     };
     const newState = reducer(initialState, {
-      type: NEW_NOTE,
+      type: 'NEW_NOTE',
       payload: {
         title: 'hi',
         body: 'bye'
@@ -42,7 +44,7 @@ describe('notes reducer', () => {
       list: []
     };
     const newState = reducer(initialState, {
-      type: FETCH_NOTES_PENDING
+      type: 'FETCH_NOTES_PENDING'
     });
 
     expect(newState).toEqual({
@@ -57,7 +59,7 @@ describe('notes reducer', () => {
       list: []
     };
     const newState = reducer(initialState, {
-      type: FETCH_NOTES,
+      type: 'FETCH_NOTES',
       payload: [{ title: 'hi', body: 'bye' }]
     });
 

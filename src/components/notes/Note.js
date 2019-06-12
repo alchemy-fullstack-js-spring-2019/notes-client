@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Note({ note }) {
   return (
-    <p>{note.title} - by {note.author.email}</p>
+    <Link to={`/${note._id}`}>{note.title} - by {note.author.email}</Link>
   );
 }
 

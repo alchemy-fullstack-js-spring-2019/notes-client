@@ -1,6 +1,7 @@
 import { SET_SESSION } from '../actions/sessionActions';
 
 const initialState = {
+  id: '',
   username: '',
   token: '',
   image: ''
