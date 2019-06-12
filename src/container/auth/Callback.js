@@ -10,6 +10,7 @@ class Callback extends PureComponent {
   componentDidMount() {
     this.props.handleAuth();
   }
+
   render() {
     return <h1></h1>;
   }
